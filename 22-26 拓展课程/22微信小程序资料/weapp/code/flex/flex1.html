@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flex Demo 1</title>
+  <style>
+    /*
+      1. 设计好DOM结构
+      2. 将父盒子设置为伸缩盒子
+     */
+    html, body {
+      height: 100%;
+    }
+
+    .root {
+      /* 将父盒子设置为伸缩盒子 */
+      display: flex;
+      border: 2px solid #ccc;
+      height: 100%;
+    }
+
+    .sidebar {
+      width: 200px;
+      background-color: #ff0;
+    }
+
+    .content {
+      /*width: 300px;*/
+      /* ???? */
+      flex: 1;
+      background-color: #e0e0e0;
+    }
+  </style>
+</head>
+<body>
+  <div class="root">
+    <div class="sidebar">
+
+    </div>
+    <div class="content">
+
+    </div>
+  </div>
+</body>
+</html>

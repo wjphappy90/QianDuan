@@ -1,0 +1,61 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flex demo 2</title>
+  <style>
+    .container {
+      width: 400px;
+      height: 300px;
+      border: 1px solid #ccc;
+      font-size: 0;
+    }
+
+    .item {
+      display: inline-block;
+      width: 25%;
+      height: 200px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="item" style="background-color: #ff0"></div>
+    <div class="item" style="background-color: #f00"></div>
+    <div class="item" style="background-color: #f0f"></div>
+    <div class="item" style="background-color: #0ff"></div>
+  </div>
+</body>
+</html>
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flex demo 2</title>
+  <style>
+    .container {
+      display: flex;
+      flex-direction: column;
+      width: 400px;
+      height: 300px;
+      border: 1px solid #ccc;
+    }
+
+    .item {
+      flex: 1;
+    }
+    /* 总的是4份，每一项占一份 */
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="item" style="background-color: #0ff; width: 200px"></div>
+    <div class="item" style="background-color: #ff0"></div>
+    <div class="item" style="background-color: #f00"></div>
+    <div class="item" style="background-color: #f0f"></div>
+    <div class="item" style="background-color: #0ff"></div>
+  </div>
+</body>
+</html>

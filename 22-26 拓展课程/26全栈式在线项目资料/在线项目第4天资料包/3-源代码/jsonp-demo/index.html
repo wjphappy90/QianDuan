@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>jsonp - 示例</title>
+</head>
+<body>
+  <script>
+
+
+    // 异步请求跨域限制（ajax）
+    // 不同域名、不同协议、不同端口号
+    
+    jsonp({
+      url: 'http://127.0.0.1:3000/',
+      data: '',
+      success: function (data) {
+        console.log(111)
+      }
+    })
+
+    jsonp({
+      url: 'http://127.0.0.1:3000/',
+      data: '',
+      success: function (data) {
+        console.log(222)
+      }
+    })
+
+    jsonp({
+      url: 'http://127.0.0.1:3000/',
+      data: '',
+      success: function (data) {
+        console.log(333)
+      }
+    })
+
+    function jsonp(option) {
+      // 将用户通过对象命名空间传递进来的函数挂载到全局
+      var callbackName = 'itcast_' + Math.random().toString().substr(2) + Math.random().toString().substr(2)
+      !window.callbacks && (window.callbacks = {})
+      window.callbacks[callbackName] = function (data) {
+        option.success(data)
+        // 这里才意味着可以删除 script 标签了
+        // 这里可以直接使用 script ，原因是下面的变量提升，而且等这里使用 script 的时候，下面的代码早就执行结束了
+        document.body.removeChild(script)
+      }
+      // 1. 解决 url 问题
+      // 2. 解决回调处理函数问题
+      option.url = option.url + '?callback=callbacks.' + callbackName
+      var script = document.createElement('script')
+      script.src = option.url
+      // 将 script 上到 DOM 中
+      document.body.appendChild(script)
+    }
+    
+
+  </script>
+</body>
+
+</html>
